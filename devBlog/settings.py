@@ -136,12 +136,12 @@ WSGI_APPLICATION = 'devBlog.wsgi.application'
 
 DATABASES = { # dictionary of databases, we can have several connections
     'default': { # default DB
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Use this backend 
-        'NAME': 'devDB', # name of DB created
-        'USER': 'postgres', # user with access --- postgres
+        'ENGINE': 'django.db.backends.mysql', # Use this backend 
+        'NAME': 'developmentdb', # name of DB created
+        'USER': 'root', # user with access --- postgres
         'PASSWORD': 'Torn@do31', # pass of the user --- superuser password
         'HOST': 'localhost', # address of DB server
-        'PORT': '5432',
+        'PORT': '3306',
     }
 }
 
