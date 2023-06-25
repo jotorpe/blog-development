@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load markdownify %}
+
+{% block content %}  
+    
+<div class="container sections-wrapper py-3">
+	<div class="row">
+
+		<div class="primary col-lg-2 col-12 rounded">
+			<nav id="toc" data-toggle="toc" class="sticky-top navbar-custom2"></nav>  
+		</div>
+
+		<div class="primary col-lg-8 col-12 mx-3"> 
+			<button onclick="topFunction()" id="btn-back-to-top" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+			{% comment %} <button type="button" class="btn btn-danger btn-floating btn-lg" id="btn-back-to-top">
+				<i class="fas fa-arrow-up"></i>
+				</button>    {% endcomment %}
+			<section class="blog section">
+				<div class="section-inner shadow-sm rounded">
+
+			    <header class="blog-post-header">
+				    <h1 class="title mb-2">{{post.title}}</h1>
+				    <p class="datepost">{{ post.timestamp | date:"F d, Y" }}, {{ post.author.user}}</p>
+			    </header>
+			    
+					<div class="list-icon">
+						{{ post.content | markdownify }}
+					</div>
+				{% comment %} <nav class="blog-nav nav nav-justified my-5">
+				  <a class="nav-link-prev nav-item nav-link rounded-left" href="#">Previous<i class="arrow-prev fas fa-long-arrow-alt-left"></i></a>
+				  <a class="nav-link-next nav-item nav-link rounded-right" href="#">Next<i class="arrow-next fas fa-long-arrow-alt-right"></i></a>
+				</nav> {% endcomment %}
+				</div>
+			</section>
+		</div>
+
+
+
+    </div><!--//main-wrapper-->
+</div>
+    
+	{% endblock content %} 
+        
