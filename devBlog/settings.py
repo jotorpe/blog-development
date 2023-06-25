@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+load_dotenv()  # loads the configs from .env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-krv5gs1vpg&)=y4+%w0^^b=(jb796vc%9j(7txjl^+a_!2!sni'
+SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -137,9 +139,9 @@ WSGI_APPLICATION = 'devBlog.wsgi.application'
 DATABASES = { # dictionary of databases, we can have several connections
     'default': { # default DB
         'ENGINE': 'django.db.backends.mysql', # Use this backend 
-        'NAME': 'developmentdb', # name of DB created
-        'USER': 'root', # user with access --- postgres
-        'PASSWORD': 'Torn@do31', # pass of the user --- superuser password
+        'NAME': str(os.getenv('DB_NAME')), # name of DB created
+        'USER': str(os.getenv('DB_USER')), # user with access --- postgres
+        'PASSWORD': str(os.getenv('DB_PASSgit')), # pass of the user --- superuser password
         'HOST': 'localhost', # address of DB server
         'PORT': '3306',
     }
